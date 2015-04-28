@@ -1,8 +1,8 @@
 <?php
-	$db_host = "198.71.225.53:3306 ";
+	$db_host = "localhost";
 	$db_user = "newuser";
 	$db_pass = "NewUser2015";
-	$db_name = "ezdatabase";
+	$db_name = "ezracdatabase";
 
 	$db_connect = mysql_connect($db_host, $db_user, $db_pass) 
 		or die ("Could not connect to MySQL");

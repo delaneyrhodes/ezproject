@@ -1,6 +1,7 @@
 <?php
 include_once 'dbConnect.php';
 include_once 'create.php';
+require_once 'htmlfunc.php';
 
 	$firstName= $_POST['firstName'];
 	$lastName= $_POST['lastName'];
@@ -9,26 +10,27 @@ include_once 'create.php';
 	$userName= $_POST['username'];
 	$password= $_POST['password'];
 	
-	$query="INSERT INTO userdatabase (firstName,lastName,email,phoneNumber,username,pword) VALUES('$firstName',
+	$query="INSERT INTO customers (firstname,lastname,email,phone,username,pass) VALUES('$firstName',
 			'$lastName','$email','$phone','$userName','$password')";
 	
 	$result=mysql_query($query);
 	if(!$result){
 
-             echo "Email already in use";
+             email_error();
 	}
 else{
-		$query1="SELECT * FROM userdatabase WHERE username = '$userName' AND pword = '$password'";
+		$query1="SELECT * FROM customers WHERE username = '$userName' AND pass = '$password'";
 		
 		$result1 = mysql_query($query1);
 		$row1 = mysql_fetch_row($result1);
 		
 		if (!$row1) {
-			echo "Unsuccessful Entry";
+			entry_error();
 		}
 		if($row1){
-			header("Location: main.php");
-			exit;
+			echo <<<_END
+			<meta http-equiv="refresh" content="0; url=main.php">;
+_END;
 		}
 	}
 ?>
