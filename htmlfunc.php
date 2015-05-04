@@ -236,6 +236,7 @@ function buttons()
 		echo<<<_END
 	<center>
 	<a href="about.php"><div class= "menubutton">About EZ</div></a>
+	<a href="info.php"><div class= "menubutton">Car Info</div></a>
 	<a href="rentcar.php"><div class= "menubutton">Rent a Car</div></a>
 	<a href="summary.php"><div class= "menubutton">Summary</div></a>
 	<a href="updateInfo.php"><div class= "menubutton">Update Info</div></a>

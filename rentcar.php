@@ -17,13 +17,9 @@ include_once 'dbConnect.php';
 <?php 
 html_header();
 buttons();
-if(isset($_SESSION['user']))
-{
-	logged();
-	$id = $_SESSION['id'];
-}	
-else 
-	signButtons();
+logged();
+$id = $_SESSION['id'];
+
 $query="SELECT carID, carName, price, imageName FROM cars";
 
 $result = mysql_query($query);
@@ -42,8 +38,10 @@ _END;
 }
 echo "<center>";
 echo "<table>";
+$r = 0;
 for($i=0; $i<$rows; $i++)
 {
+	$r++;
 	$rows=mysql_fetch_row($result);
 	if($i%4 ==0) //start a new row in table
 		echo "<tr>";
@@ -76,7 +74,7 @@ _END;
 	if($i%4 ==4) //last column in the row
 		echo "</tr>";
 }
-if(($rows-1)%4!=3)
+if(($rows)%4!=3)
 	echo "</tr>";
 echo "</table>";
 echo "</center>";

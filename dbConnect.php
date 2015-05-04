@@ -1,5 +1,5 @@
 <?php
-	$db_host = "localhost";
+	$db_host = "198.71.225.53:3306";
 	$db_user = "newuser";
 	$db_pass = "NewUser2015";
 	$db_name = "ezracdatabase";
